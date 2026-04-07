@@ -200,3 +200,22 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+.nav-link {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+/* ta bort blå outline */
+.nav-link:focus {
+  outline: none;
+}
+
+/* hover som dina andra länkar */
+.nav-link:hover {
+  color: #8b3a1c;
+}
