@@ -60,6 +60,7 @@ body {
   border: none;
   padding: 12px 25px;
   border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 .hero-img img {
@@ -130,4 +131,34 @@ body {
   .highlight {
     flex-direction: column;
   }
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu p {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.dropdown-menu p:hover {
+  background: #f3e5dc;
+}
+
+/* 👇 hover effect */
+.dropdown:hover .dropdown-menu {
+  display: block;
 }

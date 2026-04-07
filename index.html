@@ -12,10 +12,17 @@
   <h2 class="logo">SweetBites</h2>
 
   <nav>
-    <a href="#">Hem</a>
-    <a href="#">Recept</a>
-    <a href="#">Dessert</a>
-    <a href="#">Kontakt</a>
+    <a href="index.html">Hem</a>
+    <div class="dropdown">
+  <a href="#">Recept</a>
+
+  <div class="dropdown-menu">
+    <p data-filter="all">Alla</p>
+    <p data-filter="mat">Mat</p>
+    <p data-filter="dessert">Dessert</p>
+  </div>
+</div>
+    <a href="contact.html">Kontakt</a>
   </nav>
 
   <button class="nav-btn">Logga in</button>
@@ -73,6 +80,6 @@
     <button>Visa mer</button>
   </div>
 </section>
-
+<script src="script.js"></script>
 </body>
 </html>
