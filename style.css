@@ -12,25 +12,39 @@ body {
 
 /* NAV */
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 20px 60px;
+  gap: 20px;
+
+  background: #e4d2c3;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 /* 👇 navbar links */
 .nav nav a {
   margin: 0 10px;
   text-decoration: none;
-  color: #333;
+  color: #000000;
   padding: 8px 16px;
   border-radius: 20px;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
+.nav nav a {
+  padding: 6px 12px;
+  font-size: 16px;
+}
 /* 🔥 bubble hover */
 .nav nav a:hover {
-  background: #e6d5c3;
+  background: #ccb398;
 }
 
 /* login button */
@@ -46,6 +60,12 @@ body {
 
 .nav-btn:hover {
   background: #6e2e15;
+}
+.nav nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap; /* 👈 hindrar radbrytning */
 }
 
 /* HERO */
@@ -67,6 +87,7 @@ body {
 
 .hero p {
   margin-bottom: 20px;
+  font-size: 18px;
 }
 
 /* buttons */
@@ -86,7 +107,7 @@ body {
 
 /* image */
 .hero-img img {
-  width: 350px;
+  width: 450px;
   border-radius: 20px;
 }
 
@@ -168,4 +189,81 @@ body {
   .highlight {
     flex-direction: column;
   }
+}
+/* 📱 MOBIL */
+@media (max-width: 600px) {
+
+  /* NAV */
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .nav nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* HERO */
+  .hero {
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero-img img {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 20px;
+  }
+
+  /* RECIPES */
+  .recipes {
+    padding: 30px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* HIGHLIGHT */
+  .highlight {
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .highlight img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+}
+
+/* 🔥 SCROLL STATE */
+.nav.scrolled {
+  background: #e4d2c3; /* mörkare */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 12px 60px; /* mindre navbar */
+  transition: 0.8s;
 }
