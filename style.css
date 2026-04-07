@@ -137,15 +137,27 @@ body {
   display: inline-block;
 }
 
+/* 👇 gör en “hover-zon” */
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+/* dropdown */
 .dropdown-menu {
   position: absolute;
-  top: 30px;
+  top: 120%;
   left: 0;
   background: white;
   border-radius: 15px;
   padding: 10px;
   display: none;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  min-width: 120px;
 }
 
 .dropdown-menu p {
@@ -158,7 +170,18 @@ body {
   background: #f3e5dc;
 }
 
-/* 👇 hover effect */
+/* 👇 FIXEN */
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
