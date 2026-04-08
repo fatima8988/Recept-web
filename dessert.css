@@ -11,29 +11,98 @@ body {
 
 /* NAV */
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 20px 60px;
-  background: #efe3d6;
+  background: #e4d2c3;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* links */
+.nav nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+/* hover */
+.nav nav a:hover {
+  background: #ccb398;
+}
+
+/* active page */
+.nav nav a.active {
+  background: #9f805f;
+  color: white;
+}
+
+/* button */
+.nav-btn {
+  background: #8b3a1c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background: #6e2e15;
 }
 
 /* HERO */
 .hero {
   height: 90vh;
+  min-height: 500px;
+
   background: url("https://images.unsplash.com/photo-1551024601-bec78aea704b") center/cover no-repeat;
+
   display: flex;
   align-items: center;
   padding: 60px;
+
+  margin-bottom: 60px; /* 👈 DETTA FIXAR OVERLAP */
+}
+.hero {
+  position: relative;
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 240, 230, 0.7),
+    rgba(255, 240, 230, 0.2)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+}
 .hero h1 {
   font-size: 60px;
 }
 
 /* CARDS */
 .desserts {
-  padding: 60px;
+  padding: 80px 60px;
 }
 
 .cards {
@@ -46,6 +115,13 @@ body {
   background: white;
   padding: 20px;
   border-radius: 25px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 .card img {
