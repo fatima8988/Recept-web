@@ -66,20 +66,24 @@ body {
 /* HERO */
 .hero {
   height: 90vh;
-  min-height: 500px;
-
-  background: url("https://images.unsplash.com/photo-1551024601-bec78aea704b") center/cover no-repeat;
-
   display: flex;
   align-items: center;
   padding: 60px;
-
-  margin-bottom: 60px; /* 👈 DETTA FIXAR OVERLAP */
 }
+
 .hero {
   position: relative;
 }
 
+/* 🍰 dessert */
+.dessert-page .hero {
+  background: url("https://images.unsplash.com/photo-1551024601-bec78aea704b") center/cover no-repeat;
+}
+
+/* 🍝 mat */
+.mat-page .hero {
+  background: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") center/cover no-repeat;
+}
 .hero::before {
   content: "";
   position: absolute;
@@ -127,4 +131,15 @@ body {
 .card img {
   width: 100%;
   border-radius: 20px;
+}
+
+/* 🔥 SCROLL EFFECT */
+.nav {
+  transition: all 0.3s ease;
+}
+
+.nav.scrolled {
+  background: #e4d2c3;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 12px 60px;
 }

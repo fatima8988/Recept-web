@@ -25,27 +25,23 @@ window.addEventListener("scroll", () => {
   }
 });
 
+
 const heroImage = document.getElementById("heroImage");
 
 const images = [
-  "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
-  "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
-  "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-  "https://images.unsplash.com/photo-1589308078059-be1415eab4c3"
+  "sc.jpg",
+  "cpp.jpg",
+  "hg.jpg"
 ];
 
-let index = 0;
+let currentIndex = 0;
 
 setInterval(() => {
-  // fade out
-  heroImage.style.opacity = 0;
+  heroImage.style.opacity = "0";
 
   setTimeout(() => {
-    index = (index + 1) % images.length;
-    heroImage.src = images[index];
-
-    // fade in
-    heroImage.style.opacity = 1;
+    currentIndex = (currentIndex + 1) % images.length;
+    heroImage.src = images[currentIndex];
+    heroImage.style.opacity = "1";
   }, 500);
-
-}, 2000); // ändra till 1000 om du vill snabbare
+}, 5000);
