@@ -9,6 +9,15 @@ body {
   background: #f7efe5;
 }
 
+.logo {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 24px;
+}
+.logo:hover {
+  opacity: 0.8;
+}
 /* NAV */
 .nav {
   position: sticky;
@@ -19,7 +28,7 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: 20px 60px;
+  padding: 15px 60px;
   background: #e4d2c3;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
@@ -77,12 +86,12 @@ body {
 
 /* 🍰 dessert */
 .dessert-page .hero {
-  background: url("https://images.unsplash.com/photo-1551024601-bec78aea704b") center/cover no-repeat;
+  background: url("dessert.jpg") center/cover no-repeat;
 }
 
 /* 🍝 mat */
 .mat-page .hero {
-  background: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") center/cover no-repeat;
+  background: url("food.jpg") center/cover no-repeat;
 }
 .hero::before {
   content: "";

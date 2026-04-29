@@ -1,19 +1,24 @@
-const items = document.querySelectorAll(".card");
-const filters = document.querySelectorAll(".dropdown-menu p");
+const heroImage = document.getElementById("heroImage");
 
-filters.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const value = btn.dataset.filter;
+const images = [
+  "pasta.jpg",
+  "cb.jpg",
+  "strawberrycake.jpg"
+];
 
-    items.forEach(card => {
-      if (value === "all" || card.dataset.category === value) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
-    });
-  });
-});
+let index = 0;
+
+setInterval(() => {
+  heroImage.style.opacity = 0;
+
+  setTimeout(() => {
+    index = (index + 1) % images.length;
+    heroImage.src = images[index];
+    heroImage.style.opacity = 1;
+  }, 500);
+
+}, 2000);
+
 
 const navbar = document.querySelector(".nav");
 
@@ -24,24 +29,3 @@ window.addEventListener("scroll", () => {
     navbar.classList.remove("scrolled");
   }
 });
-
-
-const heroImage = document.getElementById("heroImage");
-
-const images = [
-  "sc.jpg",
-  "cpp.jpg",
-  "hg.jpg"
-];
-
-let currentIndex = 0;
-
-setInterval(() => {
-  heroImage.style.opacity = "0";
-
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % images.length;
-    heroImage.src = images[currentIndex];
-    heroImage.style.opacity = "1";
-  }, 500);
-}, 5000);

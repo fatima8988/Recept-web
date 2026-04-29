@@ -10,6 +10,29 @@ body {
   color: #2d2d2d;
 }
 
+/* LOGO */
+.logo {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* smooth transition */
+.nav {
+  transition: all 0.3s ease;
+}
+
+/* när man scrollar */
+.nav.scrolled {
+  padding: 12px 60px; /* mindre navbar */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.nav.scrolled {
+  padding: 10px 60px;
+  background: #e4d2c3;
+  backdrop-filter: blur(6px);
+}
 /* NAV */
 .nav {
   position: sticky;
@@ -20,52 +43,38 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: 20px 60px;
-  gap: 20px;
-
+  padding: 15px 60px;
   background: #e4d2c3;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* 👇 navbar links */
+.nav nav {
+  display: flex;
+  gap: 10px;
+}
+
 .nav nav a {
-  margin: 0 10px;
   text-decoration: none;
-  color: #000000;
+  color: black;
   padding: 8px 16px;
   border-radius: 20px;
   transition: 0.3s;
-  white-space: nowrap;
 }
 
-.nav nav a {
-  padding: 6px 12px;
-  font-size: 16px;
-}
-/* 🔥 bubble hover */
 .nav nav a:hover {
   background: #ccb398;
 }
 
-/* login button */
+.nav nav a.active {
+  background: #8b3a1c;
+  color: white;
+}
+
 .nav-btn {
   background: #8b3a1c;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.nav-btn:hover {
-  background: #6e2e15;
-}
-.nav nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: nowrap; /* 👈 hindrar radbrytning */
 }
 
 /* HERO */
@@ -74,10 +83,23 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 60px;
+  gap: 60px;
 }
+
 .hero-text {
-  max-width: 500px;
+  max-width: 800px;
   flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 56px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 .hero-img {
@@ -86,40 +108,14 @@ body {
   justify-content: center;
 }
 
-.hero h1 {
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-/* buttons */
-.hero button {
-  background: #8b3a1c;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero button:hover {
-  background: #6e2e15;
-}
-
-/* image */
 .hero-img img {
   width: 100%;
-  max-width: 350px;
-  border-radius: 20px;
+  max-width: 500px;
+  border-radius: 25px;
   transition: opacity 0.5s ease;
 }
 
-/* RECIPES */
+/* CARDS */
 .recipes {
   padding: 60px;
 }
@@ -131,13 +127,11 @@ body {
   margin-top: 30px;
 }
 
-/* cards */
 .card {
   background: white;
   padding: 15px;
   border-radius: 20px;
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .card img {
@@ -145,45 +139,12 @@ body {
   border-radius: 15px;
 }
 
-.card h3 {
-  margin-top: 10px;
-}
-
-/* 🔥 hover lift effect */
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* HIGHLIGHT */
-.highlight {
-  display: flex;
-  align-items: center;
-  padding: 60px;
-  gap: 40px;
-}
-
-.highlight img {
-  width: 250px;
-  border-radius: 20px;
-}
-
-.highlight button {
-  margin-top: 15px;
-  background: #8b3a1c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.highlight button:hover {
-  background: #6e2e15;
-}
-
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
@@ -193,86 +154,4 @@ body {
   .cards {
     grid-template-columns: 1fr;
   }
-
-  .highlight {
-    flex-direction: column;
-  }
 }
-/* 📱 MOBIL */
-@media (max-width: 600px) {
-
-  /* NAV */
-  .nav {
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-  }
-
-  .nav nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.nav nav a {
-  text-decoration: none;
-  color: #333;
-  padding: 8px 14px;
-  border-radius: 20px;
-  transition: 0.3s;
-}
-
-  .nav-btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* HERO */
-  .hero {
-    flex-direction: column;
-    padding: 30px 20px;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .hero-img img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 20px;
-}
-
-  /* RECIPES */
-  .recipes {
-    padding: 30px 20px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  /* HIGHLIGHT */
-  .highlight {
-    flex-direction: column;
-    padding: 30px 20px;
-    text-align: center;
-  }
-
-  .highlight img {
-    width: 100%;
-    max-width: 200px;
-  }
-
-}
-
-/* 🔥 SCROLL STATE */
-.nav.scrolled {
-  background: #e4d2c3; /* mörkare */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  padding: 12px 60px; /* mindre navbar */
-  transition: 0.8s;
-}
-
