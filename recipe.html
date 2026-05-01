@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Recept</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="index.html" class="logo">SweetBites</a>
+
+  <nav id="navLinks">
+    <a href="index.html">Hem</a>
+    <a href="mat.html">Mat</a>
+    <a href="dessert.html">Dessert</a>
+  </nav>
+
+  <button class="nav-btn">Logga in</button>
+</header>
+
+<!-- PAGE -->
+<section class="recipe-page">
+  <div id="recipeContainer"></div>
+</section>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h2>Logga in</h2>
+
+    <input type="text" id="username" placeholder="Användarnamn">
+    <input type="password" id="password" placeholder="Lösenord">
+
+    <button id="loginSubmit">Logga in</button>
+  </div>
+</div>
+
+<script>
+// ======================
+// RECIPE PAGE LOGIC
+// ======================
+
+const container = document.getElementById("recipeContainer");
+const recipe = JSON.parse(localStorage.getItem("selectedRecipe"));
+
+if (!recipe) {
+  container.innerHTML = "<p>Inget recept hittades</p>";
+} else {
+
+  // INGREDIENTS
+  let ingredients = "";
+
+  for (let i = 1; i <= 20; i++) {
+    const ing = recipe["strIngredient" + i];
+    const mea = recipe["strMeasure" + i];
+
+    if (ing && ing.trim() !== "") {
+      ingredients += `
+        <label class="ingredient">
+          <input type="checkbox">
+          <span>${mea} ${ing}</span>
+        </label>
+      `;
+    }
+  }
+
+  // STEPS (cleaned)
+  const steps = recipe.strInstructions
+    .split(/\.\s+/)
+    .filter(step => step.trim() !== "");
+
+  let stepsHTML = "";
+
+  steps.forEach(step => {
+    let clean = step.replace(/^\d+$/, "");
+    clean = clean.replace(/^\d+\.\s*/, "");
+
+    if (clean.trim() === "") return;
+
+    stepsHTML += `<li>${clean}</li>`;
+  });
+
+  // RENDER
+  container.innerHTML = `
+    <div class="recipe-layout">
+
+      <!-- TOP -->
+      <div class="recipe-top">
+
+        <div class="recipe-info">
+          <h1>${recipe.strMeal}</h1>
+
+          <p class="recipe-desc">
+            ${recipe.strMeal} is a ${recipe.strCategory.toLowerCase()} dish from ${recipe.strArea}, known for its rich flavors and delicious ingredients. It is a popular recipe that combines traditional cooking techniques with a modern taste experience.
+          </p>
+
+          <button id="favBtn" class="fav-big">❤️ Spara</button>
+        </div>
+
+        <div class="recipe-image">
+          <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
+        </div>
+
+      </div>
+
+      <!-- BOTTOM -->
+      <div class="recipe-bottom">
+
+        <div class="steps-box">
+          <h3>Instructions</h3>
+          <ul class="instructions">
+            ${stepsHTML}
+          </ul>
+        </div>
+
+        <div class="ingredients-box">
+          <h3>Ingredients</h3>
+          ${ingredients}
+        </div>
+
+      </div>
+
+    </div>
+  `;
+
+  // FAVORITES (login protected)
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const favBtn = document.getElementById("favBtn");
+
+  if (favorites.includes(recipe.idMeal)) {
+    favBtn.innerText = "❤️ Sparad";
+  }
+
+  favBtn.addEventListener("click", () => {
+
+    if (localStorage.getItem("loggedIn") !== "true") {
+      alert("Logga in för att spara ❤️");
+      return;
+    }
+
+    if (!favorites.includes(recipe.idMeal)) {
+      favorites.push(recipe.idMeal);
+      favBtn.innerText = "❤️ Sparad";
+    } else {
+      favorites = favorites.filter(id => id !== recipe.idMeal);
+      favBtn.innerText = "❤️ Spara";
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  });
+}
+</script>
+
+<!-- AUTH SYSTEM -->
+<script src="auth.js"></script>
+
+</body>
+</html>

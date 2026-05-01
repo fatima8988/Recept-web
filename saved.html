@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>SweetBites</title>
+  <title>Sparade</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,48 +10,24 @@
 <header class="nav">
   <a href="index.html" class="logo">SweetBites</a>
 
+  <!-- ✅ IMPORTANT ID -->
   <nav id="navLinks">
-    <a href="index.html" class="active">Hem</a>
+    <a href="index.html">Hem</a>
     <a href="mat.html">Mat</a>
     <a href="dessert.html">Dessert</a>
-    <a href="#">Kontakt</a>
+    <a href="saved.html" class="active">Sparade</a>
   </nav>
 
+  <!-- ✅ SAME BUTTON -->
   <button class="nav-btn">Logga in</button>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>
-      Upptäck goda recept<br>
-      varje dag
-    </h1>
-    <p>
-      Hitta inspiration för mat och dessert på ett enkelt och snyggt sätt
-    </p>
-  </div>
-
-  <div class="hero-img">
-    <img id="heroImage" src="p.png" alt="">
-  </div>
-</section>
-
-<!-- SEARCH + API -->
 <section class="recipes">
-  <h2>Hitta recept</h2>
-
-  <input 
-    type="text" 
-    id="search" 
-    placeholder="Sök recept..." 
-    class="search"
-  >
-
-  <div class="cards" id="recipesContainer"></div>
+  <h2>Dina favoriter ❤️</h2>
+  <div id="savedContainer" class="cards"></div>
 </section>
 
-<!-- 🔐 LOGIN MODAL -->
+<!-- ✅ LOGIN MODAL (REQUIRED) -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
     <h2>Logga in</h2>
@@ -63,6 +39,9 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<!-- ✅ IMPORTANT ORDER -->
+<script src="saved.js"></script>
+<script src="auth.js"></script>
+
 </body>
 </html>

@@ -10,7 +10,7 @@
 <header class="nav">
   <a href="index.html" class="logo">SweetBites</a>
 
-  <nav>
+  <nav id="navLinks">
     <a href="index.html">Hem</a>
     <a href="mat.html">Mat</a>
     <a href="dessert.html" class="active">Dessert</a>
@@ -20,6 +20,7 @@
   <button class="nav-btn">Logga in</button>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Bakery</h1>
@@ -27,24 +28,11 @@
   </div>
 </section>
 
+<!-- API CARDS -->
 <section class="desserts">
-  <div class="cards">
-    <div class="card">
-      <img src="d.jpg">
-      <h3>Vaniljkaka</h3>
-    </div>
-
-    <div class="card">
-      <img src="csc.jpg">
-      <h3>Chokladkaka</h3>
-    </div>
-
-    <div class="card">
-      <img src="cc.jpg">
-      <h3>Cheesecake</h3>
-    </div>
-  </div>
+  <div id="recipesContainer" class="cards"></div>
 </section>
+<script src="auth.js"></script>
 <script src="dessert.js"></script>
 </body>
 </html>
