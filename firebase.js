@@ -1,4 +1,4 @@
-// firebase.js
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import {
   getAuth,
@@ -9,13 +9,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBQpY6O3B7A1NyT7bRPdLmgEGAWtYNnnnY",
-  authDomain: "recept-e1e42.firebaseapp.com",
-  projectId: "recept-e1e42",
-  storageBucket: "recept-e1e42.appspot.com", // ✅ FIXED
-  messagingSenderId: "548745272878",
-  appId: "1:548745272878:web:29013a455416d438d149bf",
-  measurementId: "G-RJV1SX7YGW"
+    apiKey: "AIzaSyCFy6ZBrTFmO10m2t0o2vxUkMWDozmdIqE",
+    authDomain: "recept-5a9dc.firebaseapp.com",
+    projectId: "recept-5a9dc",
+    storageBucket: "recept-5a9dc.firebasestorage.app",
+    messagingSenderId: "154084286789",
+    appId: "1:154084286789:web:84b28dbf765fe090655e2c",
+    measurementId: "G-ZQMGLX7TYL"
 };
 
 const app = initializeApp(firebaseConfig);
