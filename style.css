@@ -90,8 +90,8 @@ body {
 /* user text */
 #userName {
   font-weight: 500;
-  color: #8b3a1c;
-  background: #ffffff;
+  color: hsl(18, 100%, 97%);
+  background: #8b3a1c;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 14px;

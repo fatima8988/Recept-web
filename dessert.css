@@ -355,8 +355,8 @@ body {
 /* user text */
 #userName {
   font-weight: 500;
-  color: #8b3a1c;
-  background: #f3e5dc;
+  color: hsl(15, 100%, 98%);
+  background: #8b3a1c;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 14px;
