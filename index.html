@@ -17,6 +17,7 @@
     <a href="kontakt.html">Kontakt</a>
   </nav>
 
+  <!-- 🔐 Firebase controls this -->
   <button class="nav-btn">Logga in</button>
 </header>
 
@@ -51,20 +52,9 @@
   <div class="cards" id="recipesContainer"></div>
 </section>
 
-<!-- 🔐 LOGIN MODAL -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <h2>Logga in</h2>
-
-    <input type="text" id="username" placeholder="Användarnamn">
-    <input type="password" id="password" placeholder="Lösenord">
-
-    <button id="loginSubmit">Logga in</button>
-  </div>
-</div>
-
-
+<!-- SCRIPTS -->
 <script src="script.js"></script>
 <script type="module" src="firebase.js"></script>
+
 </body>
 </html>

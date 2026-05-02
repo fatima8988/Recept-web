@@ -25,19 +25,35 @@
   <div id="recipeContainer"></div>
 </section>
 
-<!-- LOGIN MODAL -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <h2>Logga in</h2>
-
-    <input type="text" id="username" placeholder="Användarnamn">
-    <input type="password" id="password" placeholder="Lösenord">
-
-    <button id="loginSubmit">Logga in</button>
-  </div>
-</div>
-
 <script>
+// ======================
+// NAV: SHOW "SAVED" WHEN LOGGED IN
+// ======================
+
+function updateSavedLink() {
+  const nav = document.getElementById("navLinks");
+  if (!nav) return;
+
+  const logged = localStorage.getItem("loggedIn") === "true";
+  const existing = document.getElementById("savedLink");
+
+  if (logged && !existing) {
+    const saved = document.createElement("a");
+    saved.href = "saved.html";
+    saved.id = "savedLink";
+    saved.innerText = "Sparade ❤️";
+    nav.appendChild(saved);
+  }
+
+  if (!logged && existing) {
+    existing.remove();
+  }
+}
+
+updateSavedLink();
+window.addEventListener("focus", updateSavedLink);
+
+
 // ======================
 // RECIPE PAGE LOGIC
 // ======================
@@ -60,14 +76,14 @@ if (!recipe) {
       ingredients += `
         <label class="ingredient">
           <input type="checkbox">
-          <span>${mea} ${ing}</span>
+          <span>${mea || ""} ${ing}</span>
         </label>
       `;
     }
   }
 
-  // STEPS (cleaned)
-  const steps = recipe.strInstructions
+  // STEPS
+  const steps = (recipe.strInstructions || "")
     .split(/\.\s+/)
     .filter(step => step.trim() !== "");
 
@@ -93,7 +109,7 @@ if (!recipe) {
           <h1>${recipe.strMeal}</h1>
 
           <p class="recipe-desc">
-            ${recipe.strMeal} is a ${recipe.strCategory.toLowerCase()} dish from ${recipe.strArea}, known for its rich flavors and delicious ingredients. It is a popular recipe that combines traditional cooking techniques with a modern taste experience.
+            ${recipe.strMeal} is a ${recipe.strCategory?.toLowerCase() || "delicious"} dish from ${recipe.strArea || "various cuisines"}, known for its rich flavors and ingredients.
           </p>
 
           <button id="favBtn" class="fav-big">❤️ Spara</button>
@@ -151,11 +167,27 @@ if (!recipe) {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   });
 }
+
+
+// ======================
+// NAV SCROLL EFFECT
+// ======================
+
+const navbar = document.querySelector(".nav");
+
+window.addEventListener("scroll", () => {
+  if (!navbar) return;
+
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
 </script>
 
-<!-- AUTH SYSTEM -->
- <script type="module" src="firebase.js"></script>
-<script src="auth.js"></script>
+<!-- FIREBASE -->
+<script type="module" src="firebase.js"></script>
 
 </body>
 </html>

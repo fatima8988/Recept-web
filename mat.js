@@ -17,7 +17,9 @@ async function getFood() {
   try {
     // fetch multiple categories
     for (let cat of categories) {
-      const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`);
+      const res = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`
+      );
       const data = await res.json();
 
       if (data.meals) {
@@ -50,7 +52,6 @@ async function getFood() {
           return;
         }
 
-        // fetch FULL recipe (important)
         const res = await fetch(
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`
         );
@@ -62,7 +63,7 @@ async function getFood() {
         window.location.href = "recipe.html";
       });
 
-      // ❤️ FAVORITES
+      // ❤️ FAVORITES (login required)
       let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
       const favBtn = card.querySelector(".fav-btn");
 
@@ -71,6 +72,12 @@ async function getFood() {
       }
 
       favBtn.addEventListener("click", () => {
+
+        if (localStorage.getItem("loggedIn") !== "true") {
+          alert("Logga in för att spara ❤️");
+          return;
+        }
+
         if (!favorites.includes(meal.idMeal)) {
           favorites.push(meal.idMeal);
           favBtn.style.background = "pink";
@@ -91,8 +98,40 @@ async function getFood() {
   }
 }
 
+
 // ======================
-// NAV SCROLL EFFECT (FIX)
+// NAV: SHOW "SAVED" WHEN LOGGED IN
+// ======================
+
+function updateSavedLink() {
+  const nav = document.getElementById("navLinks");
+  if (!nav) return;
+
+  const logged = localStorage.getItem("loggedIn") === "true";
+  const existing = document.getElementById("savedLink");
+
+  if (logged && !existing) {
+    const saved = document.createElement("a");
+    saved.href = "saved.html";
+    saved.id = "savedLink";
+    saved.innerText = "Sparade ❤️";
+    nav.appendChild(saved);
+  }
+
+  if (!logged && existing) {
+    existing.remove();
+  }
+}
+
+// run on load
+updateSavedLink();
+
+// also re-check when returning to page
+window.addEventListener("focus", updateSavedLink);
+
+
+// ======================
+// NAV SCROLL EFFECT
 // ======================
 
 const navbar = document.querySelector(".nav");
@@ -106,5 +145,10 @@ window.addEventListener("scroll", () => {
     navbar.classList.remove("scrolled");
   }
 });
-// load page
+
+
+// ======================
+// LOAD PAGE
+// ======================
+
 getFood();

@@ -37,7 +37,7 @@ function updateUI(user) {
       ? user.displayName.split(" ")[0]
       : "User";
 
-    name.innerText = `Hej, ${userName} 👋`;
+    name.innerText = `Hej, ${userName} `;
 
     navLinks.appendChild(name);
     loginBtn.innerText = "Logga ut";
