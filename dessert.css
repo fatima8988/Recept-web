@@ -331,3 +331,8 @@ body {
     width: 90%;
   }
 }
+
+#userName {
+  font-weight: 500;
+  color: #8b3a1c;
+}

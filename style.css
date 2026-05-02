@@ -523,3 +523,8 @@ body {
   font-size: 14px;
   color: #777;
 }
+
+#userName {
+  font-weight: 500;
+  color: #8b3a1c;
+}
