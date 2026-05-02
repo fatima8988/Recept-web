@@ -58,7 +58,19 @@ body {
   border-radius: 20px;
   transition: 0.3s;
 }
+.nav nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav nav a {
+  line-height: 1;
+}
 
+#savedLink {
+  display: flex;
+  align-items: center;
+}
 .nav nav a:hover {
   background: #ccb398;
 }
