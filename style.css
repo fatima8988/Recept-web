@@ -81,10 +81,20 @@ body {
 }
 
 /* USER NAME */
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* user text */
 #userName {
   font-weight: 500;
   color: #8b3a1c;
-  margin-left: 60px;
+  background: #f3e5dc;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
