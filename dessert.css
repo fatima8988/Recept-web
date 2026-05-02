@@ -51,6 +51,20 @@ body {
   transition: 0.3s;
 }
 
+
+.nav nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav nav a {
+  line-height: 1;
+}
+
+#savedLink {
+  display: flex;
+  align-items: center;
+}
 /* hover */
 .nav nav a:hover {
   background: #ccb398;
