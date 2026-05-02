@@ -34,7 +34,7 @@ function updateSavedLink() {
 const saved = document.createElement("a");
 saved.href = "saved.html";
 saved.id = "savedLink";
-saved.innerText = "Favorite ❤️";
+saved.innerText = "Saved ❤️";
 
 // 🔥 highlight if on saved page
 if (window.location.pathname.includes("saved.html")) {
