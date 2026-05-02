@@ -91,5 +91,20 @@ async function getFood() {
   }
 }
 
+// ======================
+// NAV SCROLL EFFECT (FIX)
+// ======================
+
+const navbar = document.querySelector(".nav");
+
+window.addEventListener("scroll", () => {
+  if (!navbar) return;
+
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
 // load page
 getFood();
