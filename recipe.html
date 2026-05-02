@@ -12,12 +12,12 @@
   <a href="index.html" class="logo">SweetBites</a>
 
   <nav id="navLinks">
-    <a href="index.html">Hem</a>
-    <a href="mat.html">Mat</a>
+    <a href="index.html">Home</a>
+    <a href="mat.html">Food</a>
     <a href="dessert.html">Dessert</a>
   </nav>
 
-  <button class="nav-btn">Logga in</button>
+  <button class="nav-btn">Log out</button>
 </header>
 
 <!-- PAGE -->
@@ -41,7 +41,7 @@ function updateSavedLink() {
     const saved = document.createElement("a");
     saved.href = "saved.html";
     saved.id = "savedLink";
-    saved.innerText = "Sparade ❤️";
+    saved.innerText = "Saved ❤️";
     nav.appendChild(saved);
   }
 
@@ -62,7 +62,7 @@ const container = document.getElementById("recipeContainer");
 const recipe = JSON.parse(localStorage.getItem("selectedRecipe"));
 
 if (!recipe) {
-  container.innerHTML = "<p>Inget recept hittades</p>";
+  container.innerHTML = "<p>No recipe found</p>";
 } else {
 
   // INGREDIENTS
@@ -112,7 +112,7 @@ if (!recipe) {
             ${recipe.strMeal} is a ${recipe.strCategory?.toLowerCase() || "delicious"} dish from ${recipe.strArea || "various cuisines"}, known for its rich flavors and ingredients.
           </p>
 
-          <button id="favBtn" class="fav-big">❤️ Spara</button>
+          <button id="favBtn" class="fav-big">❤️ Save</button>
         </div>
 
         <div class="recipe-image">
@@ -146,22 +146,22 @@ if (!recipe) {
   const favBtn = document.getElementById("favBtn");
 
   if (favorites.includes(recipe.idMeal)) {
-    favBtn.innerText = "❤️ Sparad";
+    favBtn.innerText = "❤️ saved";
   }
 
   favBtn.addEventListener("click", () => {
 
     if (localStorage.getItem("loggedIn") !== "true") {
-      alert("Logga in för att spara ❤️");
+      alert("Log in to save ❤️");
       return;
     }
 
     if (!favorites.includes(recipe.idMeal)) {
       favorites.push(recipe.idMeal);
-      favBtn.innerText = "❤️ Sparad";
+      favBtn.innerText = "❤️ saved";
     } else {
       favorites = favorites.filter(id => id !== recipe.idMeal);
-      favBtn.innerText = "❤️ Spara";
+      favBtn.innerText = "❤️ save";
     }
 
     localStorage.setItem("favorites", JSON.stringify(favorites));

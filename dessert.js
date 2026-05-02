@@ -7,7 +7,7 @@ const container = document.getElementById("recipesContainer");
 async function getDesserts() {
   if (!container) return;
 
-  container.innerHTML = "<p>Laddar...</p>";
+  container.innerHTML = "<p>Loading...</p>";
 
   try {
     const res = await fetch(
@@ -16,7 +16,7 @@ async function getDesserts() {
     const data = await res.json();
 
     if (!data.meals) {
-      container.innerHTML = "<p>Inga desserter hittades</p>";
+      container.innerHTML = "<p>No desserts found</p>";
       return;
     }
 
@@ -33,14 +33,14 @@ async function getDesserts() {
       card.innerHTML = `
         <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
         <h3>${meal.strMeal}</h3>
-        <button class="open-btn">Öppna</button>
+        <button class="open-btn">Open</button>
         <button class="fav-btn">❤️</button>
       `;
 
       // 🔓 OPEN (login required)
       card.querySelector(".open-btn").addEventListener("click", async () => {
         if (localStorage.getItem("loggedIn") !== "true") {
-          alert("Logga in först!");
+          alert("Log in first!");
           return;
         }
 
@@ -66,7 +66,7 @@ async function getDesserts() {
 
       favBtn.addEventListener("click", () => {
         if (localStorage.getItem("loggedIn") !== "true") {
-          alert("Logga in för att spara ❤️");
+          alert("Log in first!");
           return;
         }
 
@@ -88,7 +88,7 @@ async function getDesserts() {
 
   } catch (err) {
     console.error(err);
-    container.innerHTML = "<p>Något gick fel</p>";
+    container.innerHTML = "<p>An error occurred while loading desserts.</p>";
   }
 }
 
@@ -108,7 +108,7 @@ function updateSavedLink() {
     const saved = document.createElement("a");
     saved.href = "saved.html";
     saved.id = "savedLink";
-    saved.innerText = "Sparade ❤️";
+    saved.innerText = "Saved ❤️";
     nav.appendChild(saved);
   }
 

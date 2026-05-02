@@ -8,9 +8,9 @@ function checkLogin() {
   if (localStorage.getItem("loggedIn") !== "true") {
     container.innerHTML = `
       <div style="padding:60px; text-align:center;">
-        <h2>🔒 Du måste logga in</h2>
-        <p>Logga in för att se dina sparade recept</p>
-        <a href="index.html">Gå tillbaka</a>
+        <h2>🔒 You must be logged in</h2>
+        <p>Log in to view your saved recipes</p>
+        <a href="index.html">Go back</a>
       </div>
     `;
     return false;
@@ -64,12 +64,11 @@ async function loadSaved() {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
   if (favorites.length === 0) {
-    container.innerHTML = "<p>Du har inga sparade recept ännu 💔</p>";
+    container.innerHTML = "<p>You have no saved recipes yet 💔</p>";
     return;
   }
 
-  container.innerHTML = "<p>Laddar...</p>";
-
+  container.innerHTML = "<p>Loading...</p>";
   let meals = [];
 
   try {
@@ -95,8 +94,8 @@ async function loadSaved() {
         <h3>${meal.strMeal}</h3>
 
         <div class="card-buttons">
-          <button class="open-btn">Öppna</button>
-          <button class="fav-btn">❌ Ta bort</button>
+          <button class="open-btn">Open</button>
+          <button class="fav-btn">❌ Remove</button>
         </div>
       `;
 
@@ -119,7 +118,7 @@ async function loadSaved() {
 
   } catch (err) {
     console.error(err);
-    container.innerHTML = "<p>Något gick fel</p>";
+    container.innerHTML = "<p>An error occurred while loading saved recipes.</p>";
   }
 }
 

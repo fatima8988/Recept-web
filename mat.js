@@ -10,7 +10,7 @@ const categories = ["Chicken", "Beef", "Pasta", "Seafood"];
 async function getFood() {
   if (!container) return;
 
-  container.innerHTML = "<p>Laddar...</p>";
+  container.innerHTML = "<p>Loading...</p>";
 
   let allMeals = [];
 
@@ -41,14 +41,14 @@ async function getFood() {
       card.innerHTML = `
         <img src="${meal.strMealThumb}">
         <h3>${meal.strMeal}</h3>
-        <button class="open-btn">Öppna</button>
+        <button class="open-btn">Open</button>
         <button class="fav-btn">❤️</button>
       `;
 
       // 🔓 OPEN (login required)
       card.querySelector(".open-btn").addEventListener("click", async () => {
         if (localStorage.getItem("loggedIn") !== "true") {
-          alert("Logga in först!");
+          alert("Log in first!");
           return;
         }
 
@@ -74,7 +74,7 @@ async function getFood() {
       favBtn.addEventListener("click", () => {
 
         if (localStorage.getItem("loggedIn") !== "true") {
-          alert("Logga in för att spara ❤️");
+          alert("Log in first!");
           return;
         }
 
@@ -93,7 +93,7 @@ async function getFood() {
     });
 
   } catch (err) {
-    container.innerHTML = "<p>Något gick fel</p>";
+    container.innerHTML = "<p>An error occurred while loading food recipes.</p>";
     console.error(err);
   }
 }
@@ -114,7 +114,7 @@ function updateSavedLink() {
     const saved = document.createElement("a");
     saved.href = "saved.html";
     saved.id = "savedLink";
-    saved.innerText = "Sparade ❤️";
+    saved.innerText = "Saved ❤️";
     nav.appendChild(saved);
   }
 

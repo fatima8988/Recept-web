@@ -58,7 +58,7 @@ if (loginSubmit) {
       if (modal) modal.style.display = "none";
       updateUI();
     } else {
-      alert("Fyll i alla fält");
+      alert("Please enter username and password");
     }
   });
 }

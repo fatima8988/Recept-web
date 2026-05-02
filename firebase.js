@@ -37,14 +37,14 @@ function updateUI(user) {
       ? user.displayName.split(" ")[0]
       : "User";
 
-    name.innerText = `Hej, ${userName} `;
+    name.innerText = `Hi, ${userName} `;
 
     navLinks.appendChild(name);
-    loginBtn.innerText = "Logga ut";
+    loginBtn.innerText = "Log out";
 
     localStorage.setItem("loggedIn", "true");
   } else {
-    loginBtn.innerText = "Logga in";
+    loginBtn.innerText = "Log in";
     localStorage.setItem("loggedIn", "false");
   }
 }

@@ -77,7 +77,7 @@ function updateSavedLink() {
     const saved = document.createElement("a");
     saved.href = "saved.html";
     saved.id = "savedLink";
-    saved.innerText = "Sparade ❤️";
+    saved.innerText = "Saved ❤️";
     nav.appendChild(saved);
   }
 
@@ -111,7 +111,7 @@ async function getRecipes(query = "chicken") {
   container.innerHTML = "";
 
   if (!data.meals) {
-    container.innerHTML = "<p>Inga recept hittades</p>";
+    container.innerHTML = "<p>No recipes found</p>";
     return;
   }
 
@@ -122,14 +122,14 @@ async function getRecipes(query = "chicken") {
     card.innerHTML = `
       <img src="${meal.strMealThumb}">
       <h3>${meal.strMeal}</h3>
-      <button class="open-btn">Öppna</button>
+      <button class="open-btn">Open</button>
       <button class="fav-btn">❤️</button>
     `;
 
     // OPEN RECIPE (LOGIN REQUIRED)
     card.querySelector(".open-btn").addEventListener("click", () => {
       if (localStorage.getItem("loggedIn") !== "true") {
-        alert("Logga in först!");
+        alert("Log in first!");
         return;
       }
 
@@ -148,7 +148,7 @@ async function getRecipes(query = "chicken") {
     favBtn.addEventListener("click", () => {
 
       if (localStorage.getItem("loggedIn") !== "true") {
-        alert("Logga in för att spara ❤️");
+        alert("Log in first to save ❤️");
         return;
       }
 
