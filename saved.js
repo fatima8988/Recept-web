@@ -31,11 +31,17 @@ function updateSavedLink() {
   const existing = document.getElementById("savedLink");
 
   if (logged && !existing) {
-    const saved = document.createElement("a");
-    saved.href = "saved.html";
-    saved.id = "savedLink";
-    saved.innerText = "Sparade ❤️";
-    nav.appendChild(saved);
+const saved = document.createElement("a");
+saved.href = "saved.html";
+saved.id = "savedLink";
+saved.innerText = "Favorite ❤️";
+
+// 🔥 highlight if on saved page
+if (window.location.pathname.includes("saved.html")) {
+  saved.classList.add("active");
+}
+
+nav.appendChild(saved);
   }
 
   if (!logged && existing) {
