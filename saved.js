@@ -7,11 +7,18 @@ const container = document.getElementById("savedContainer");
 function checkLogin() {
   if (localStorage.getItem("loggedIn") !== "true") {
     container.innerHTML = `
-      <div style="padding:60px; text-align:center;">
-        <h2>🔒 You must be logged in</h2>
-        <p>Log in to view your saved recipes</p>
-        <a href="index.html" class="go-back">Go back</a>
-      </div>
+      <section class="locked-page">
+  <div class="locked-box">
+
+    <div class="lock-icon">🔒</div>
+
+    <h2>You must be logged in</h2>
+    <p>Log in to view your saved recipes</p>
+
+    <a href="index.html" class="go-back">← Back to home</a>
+
+  </div>
+</section>
     `;
     return false;
   }
