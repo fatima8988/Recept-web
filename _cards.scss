@@ -1,0 +1,23 @@
+@use "variables" as *;
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: $card-bg;
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+
+  img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+}

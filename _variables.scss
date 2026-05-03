@@ -1,0 +1,12 @@
+$bg-color: #f7efe5;
+$text-color: #2d2d2d;
+$main-color: #8b3a1c;
+$card-bg: white;
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero {
+  @include flex-center;
+}

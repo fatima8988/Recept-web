@@ -1,0 +1,31 @@
+@use "variables" as *;
+
+.nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e4d2c3;
+
+  nav {
+    display: flex;
+    gap: 10px;
+
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 8px 16px;
+      border-radius: 20px;
+
+      &:hover {
+        background: #ccb398;
+      }
+
+      &.active {
+        background: $main-color;
+        color: white;
+      }
+    }
+  }
+}
