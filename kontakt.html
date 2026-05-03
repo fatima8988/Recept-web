@@ -26,12 +26,12 @@
     <h1>Contact us 💌</h1>
     <p>Do you have any questions, feedback, or suggestions? Feel free to reach out!</p>
 
-    <form class="contact-form">
-      <input type="text" placeholder="Your name" required>
-      <input type="email" placeholder="Your email" required>
-      <textarea placeholder="Your message..." rows="5" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+<form class="contact-form" onsubmit="sendMail(event)">
+  <input type="text" id="name" placeholder="Your name" required>
+  <input type="email" id="email" placeholder="Your email" required>
+  <textarea id="message" placeholder="Your message..." rows="5" required></textarea>
+  <button type="submit">Send</button>
+</form>
 
     <div class="contact-info">
       <p>📧 Email: sweetbites@email.com</p>
@@ -43,6 +43,22 @@
 
 <!-- SCRIPTS -->
 <script type="module" src="firebase.js"></script>
+<script>
+function sendMail(e) {
+  e.preventDefault();
 
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const subject = encodeURIComponent("Message from SweetBites");
+  const body = encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+  );
+
+  // 👉 CHANGE THIS EMAIL
+  window.location.href = `mailto:fatima.chohan@elev.ga.lbs.se?subject=${subject}&body=${body}`;
+}
+</script>
 </body>
 </html>
