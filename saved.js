@@ -10,7 +10,7 @@ function checkLogin() {
       <div style="padding:60px; text-align:center;">
         <h2>🔒 You must be logged in</h2>
         <p>Log in to view your saved recipes</p>
-        <a href="index.html">Go back</a>
+        <a href="index.html" class="go-back">Go back</a>
       </div>
     `;
     return false;

@@ -419,3 +419,21 @@ body {
     max-width: 100%;
   }
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.go-back {
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+  background: #8b3a1c;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.go-back:hover {
+  background: #6e2e15;
+}
